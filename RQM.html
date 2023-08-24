@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Random Quote Machine</title>
+    <script>
+        const quoteArr = [
+        {
+            quote: "Physics is becoming too difficult for the physicists.",
+            author: "-DAVID HILBERT-"
+        },
+        {
+            quote: "Physics is mathematical, not because we know so much about the physical world, but because we know so little: it is only its mathematical properties that we can discover.",
+            author: "-BERTRAND RUSSELL-"
+        },
+        {
+            quote: "Assessing existence while failing to embrace the insights of modern physics would be like wrestling in the dark with an unknown opponent",
+            author: "-BRIAN GREENE-"
+        },
+        {
+            quote: "Physics is like sex: sure, it may give some practical results, but that's not why we do it.",
+            author: "-RICHARD FEYNMAN-"
+        },
+        {
+            quote: "All science is either physics or stamp collecting.",
+            author: "-ERNEST RUTHERFORD-"
+        },
+        {
+            quote: "The most beautiful thing we can experience is the mysterious. It is the source of all true art and science.",
+            author: "-ALBERT EINSTEIN-"
+        },
+        {
+            quote: "In questions of science, the authority of a thousand is not worth the humble reasoning of a single individual",
+            author: "-GALILEO GALILEI-"
+        },
+        {
+            quote: "That's not right.  That's not even wrong.",
+            author: "-WOLFGANG PAUL-"
+        },
+        {
+            quote: "An experiment is a question which science poses to Nature and a measurement is the recording of Nature's answer.",
+            author: "-MAX PLANCK-"
+        },
+        {
+            quote: "Science is a way of thinking much more than it is a body of knowledge.",
+            author: "-CARL SAGAN-"
+        }
+        ];
+
+        const colourArr = [
+            '#ADD8E6', '#90EE90', 'violet', 'pink', '#ffcccb', 'yellow'
+        ]
+        
+        window.onload = changeText;
+
+        function changeText() {
+            let ranNum = Math.floor(Math.random()*quoteArr.length);
+            let ranNum2 = Math.floor(Math.random()*colourArr.length);
+            
+            document.getElementById("text").innerText = quoteArr[ranNum].quote;
+            document.getElementById("author").innerText = quoteArr[ranNum].author;
+            document.getElementById("body").style.background = colourArr[ranNum2];
+            document.getElementById("new-quote").style.background = colourArr[ranNum2];
+
+        }
+    </script>
+    <style>
+        * {
+            font-weight: bold;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            top: 50%;
+        }
+
+        #tweetandquote {
+            display: flex;
+            justify-content: space-evenly;
+
+        }
+
+        #text {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        #author {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        #quote-box {
+            width: 40%;
+            height: auto;
+            position: absolute;
+            top:36%;
+            border-radius: 4px;
+            background-color: white;
+        }
+
+        #inside {
+            padding: 20px;
+        }
+
+        .bird {
+            color: blue;
+        }
+
+        #new-quote {
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 1px;
+        }
+
+        @media (max-width: 800px){
+            * {
+                font-size: small;
+            }
+            body {
+                top: 10%;
+            }
+
+            #quote-box {
+                top: 20%;
+                width: 70%;
+            }
+        }
+
+    </style>
+</head>
+<body id="body">
+    <wrapper id="quote-box">
+        <div id="inside">
+            <div id="text"></div>
+            <div id="author"></div>
+            <div id="tweetandquote">
+                <button id="new-quote" onClick="changeText()">New Quote</button>
+                <a href="https://www.twitter.com/intent/tweet" target="_top" id="tweet-quote"><i class="fa fa-twitter bird"></i></a>
+            </div>
+        </div>
+    </wrapper>
+    <script id="testing "src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+</html>
